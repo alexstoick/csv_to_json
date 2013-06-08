@@ -1,6 +1,6 @@
 require 'json'
 
-file = open( 'table_4.csv')
+file = open( 'file.csv')
 
 props = file.first.gsub( /\"/ , '' ).gsub(/\n/,'').split(',')
 
@@ -26,7 +26,7 @@ file.each do |line|
 	printf( "completed %6d\n" , count.to_s )
 
 	if count % 50000 == 0
-		File.open( count.to_s + 'stuff.json' , 'w' ) { |file| file.puts ( entries.to_json ) }
+		File.open( count.to_s + '.json' , 'w' ) { |file| file.puts ( entries.to_json ) }
 		printf( "WROTE TO FILE \n")
 	end
 end
